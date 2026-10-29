@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-espresso: #24150e;
+  --color-roast: #4a2c1d;
+  --color-mocha: #7a5238;
+  --color-cherry: #9e2a2b;
+  --color-cherry-dark: #7c1f20;
+  --color-cream: #f8f2e9;
+  --color-latte: #ecdfcc;
+  --color-sand: #d9c4a5;
+  --color-leaf: #3f5a3a;
+  --color-gold: #c08a3e;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-cherry);
+  color: var(--color-cream);
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cherry;
+}
+@utility btn-primary {
+  @apply btn bg-cherry text-cream hover:bg-cherry-dark;
+}
+@utility btn-outline {
+  @apply btn border border-current hover:bg-espresso hover:text-cream;
+}
+@utility btn-whatsapp {
+  @apply btn bg-[#1f9d55] text-white hover:bg-[#178246];
+}
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-cherry;
+}
+@utility field {
+  @apply w-full rounded-lg border border-sand bg-white px-4 py-3 text-sm outline-none transition focus:border-cherry focus:ring-2 focus:ring-cherry/20;
+}
