@@ -66,8 +66,7 @@ export default function EnquiryForm({ variant }: { variant: "contact" | "wholesa
           Thank you!
         </p>
         <p className="mt-2" style={{ color: "var(--primary)", fontSize: "15px" }}>
-          Your message has been sent to{" "}
-          <strong>{site.email}</strong>. {site.responseTime}
+          Message sent. We&apos;ll be in touch soon.
         </p>
         <button
           type="button"
@@ -193,11 +192,7 @@ export default function EnquiryForm({ variant }: { variant: "contact" | "wholesa
       </button>
 
       <p style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
-        Your message goes directly to{" "}
-        <a href={`mailto:${site.email}`} style={{ color: "var(--accent)" }}>
-          {site.email}
-        </a>
-        . We usually reply within a few hours.
+        We&apos;ll get back to you soon.
       </p>
     </form>
   );
