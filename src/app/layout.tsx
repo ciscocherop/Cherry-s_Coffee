@@ -4,6 +4,7 @@ import "./globals.css";
 import { site } from "@/config/site";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import BottomNav from "@/components/layout/BottomNav";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import SplashScreen from "@/components/shared/SplashScreen";
 import PageTransition from "@/components/shared/PageTransition";
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
+        <BottomNav />
         <WhatsAppFloat />
       </body>
     </html>

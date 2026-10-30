@@ -33,7 +33,7 @@ export default function Header() {
         .mobile-drawer {
           position: fixed;
           inset: 0;
-          z-index: 50;
+          z-index: 200;
           pointer-events: none;
         }
         .mobile-drawer.open { pointer-events: all; }
@@ -97,8 +97,9 @@ export default function Header() {
       `}</style>
 
       <header
-        className="sticky top-0 z-40 border-b border-border"
+        className="sticky top-0 border-b border-border"
         style={{
+          zIndex: 100,
           backgroundColor: "oklch(0.955 0.018 75 / 0.95)",
           backdropFilter: "blur(12px)",
         }}
