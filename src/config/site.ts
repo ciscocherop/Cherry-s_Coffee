@@ -3,18 +3,21 @@
 
 export const site = {
   name: "Cherry's Coffee",
-  tagline: "Sipi's Finest Coffee",
+  tagline: "Keep Sipping",
   description:
     "Arabica coffee from Sipi and the slopes of Mount Elgon, Uganda. Instant coffee, ground coffee, roasted beans and coffee cascara — order easily on WhatsApp.",
   // Used for sitemap, canonical URLs and social previews. Update when the domain is bought.
   url: "https://cherryscoffee.example.com",
 
   // WhatsApp number in international format, digits only (no +, spaces or dashes).
-  whatsapp: "256700000000",
+  whatsapp: "256703558174",
   // Phone number as it should be displayed and dialled.
-  phoneDisplay: "+256 700 000 000",
-  phoneHref: "+256700000000",
-  email: "hello@cherryscoffee.example.com",
+  phoneDisplay: "+256 703 558 174",
+  phoneHref: "+256703558174",
+  // Second phone (voice calls)
+  phone2Display: "+256 784 309 829",
+  phone2Href: "+256784309829",
+  email: "ciscocherry@gmail.com",
 
   location: {
     town: "Sipi Town",

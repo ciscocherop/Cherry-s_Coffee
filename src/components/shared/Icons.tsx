@@ -41,15 +41,52 @@ export function ArrowIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
-// Simple coffee cherry mark used as the logo until the real logo is supplied.
+/**
+ * Cherry's Coffee logo mark — a bold "C" with a coffee cup nestled inside.
+ * The C is drawn in espresso brown; the cup sits centred inside the opening.
+ */
 export function CherryMark({ className = "h-8 w-8" }: IconProps) {
   return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <path d="M20 4c3 4 8 5 12 4" stroke="#3f5a3a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-      <path d="M20 4c-1 6-4 10-8 14M20 4c1 6 4 10 7 13" stroke="#3f5a3a" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <circle cx="12" cy="26" r="9" fill="#9e2a2b" />
-      <circle cx="27" cy="25" r="8" fill="#7c1f20" />
-      <path d="M9 23c1-2 3-3 5-3" stroke="#f8f2e9" strokeOpacity=".5" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+    <svg viewBox="0 0 48 48" className={className} fill="none" aria-label="Cherry's Coffee logo mark">
+      {/* Bold C arc — open on the right */}
+      <path
+        d="M38 10a20 20 0 1 0 0 28"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        fill="none"
+        style={{ color: "var(--accent)" }}
+      />
+
+      {/* Cup body */}
+      <path
+        d="M17 20h14l-2 10a2 2 0 0 1-2 1.5h-6a2 2 0 0 1-2-1.5Z"
+        fill="currentColor"
+        style={{ color: "var(--accent)" }}
+      />
+
+      {/* Cup handle */}
+      <path
+        d="M31 23h2.5a3 3 0 0 1 0 6H31"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        fill="none"
+        style={{ color: "var(--accent)" }}
+      />
+
+      {/* Saucer */}
+      <rect x="14" y="31.5" width="20" height="2" rx="1" fill="currentColor" style={{ color: "var(--accent)" }} />
+
+      {/* Steam wisps */}
+      <path
+        d="M20 18c0-1.5 2-1.5 2-3M24 18c0-1.5 2-1.5 2-3"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        fill="none"
+        style={{ color: "var(--kraft)" }}
+      />
     </svg>
   );
 }

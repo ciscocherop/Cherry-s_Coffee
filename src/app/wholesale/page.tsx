@@ -1,4 +1,5 @@
 import { pageMetadata } from "@/lib/seo";
+import { site } from "@/config/site";
 import PageHeader from "@/components/shared/PageHeader";
 import EnquiryForm from "@/components/shared/EnquiryForm";
 
@@ -39,7 +40,13 @@ export default function WholesalePage() {
           </div>
           <div>
             <h2 className="font-serif text-2xl font-bold">Request a quote</h2>
-            <p className="mt-2 text-roast">Fill in the form and we&apos;ll reply by email or phone.</p>
+            <p className="mt-2" style={{ color: "var(--primary)" }}>
+              Fill in the form below and we&apos;ll reply to{" "}
+              <a href={`mailto:${site.email}`} style={{ color: "var(--accent)" }}>
+                {site.email}
+              </a>{" "}
+              or call you back.
+            </p>
             <div className="mt-6">
               <EnquiryForm variant="wholesale" />
             </div>

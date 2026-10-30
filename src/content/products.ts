@@ -1,6 +1,5 @@
 import type { Product } from "@/types/product";
 
-// TODO: confirm every size and price before launch. A price of 0 shows "Price on request".
 export const products: Product[] = [
   {
     slug: "organic-instant-coffee-dark-roast",
@@ -12,9 +11,12 @@ export const products: Product[] = [
       "The aroma and full flavour of our instant coffee will tempt you into a second cup.",
     ],
     tone: "instant",
+    image: "/images/types_of_coffee.jpeg",
     sizes: [
-      { label: "100 g", priceUGX: 0 },
-      { label: "225 g (75 servings)", priceUGX: 0 },
+      { label: "50 g", priceUGX: 0 },
+      { label: "150 g", priceUGX: 0 },
+      { label: "320 g", priceUGX: 0 },
+      { label: "1 kg", priceUGX: 0 },
     ],
     inStock: true,
     tastingNotes: ["Dark chocolate", "Toasted", "Smooth finish"],
@@ -55,10 +57,12 @@ export const products: Product[] = [
       "A medium grind that suits French press, moka pot, pour-over and the traditional Ugandan way of boiling coffee.",
     ],
     tone: "medium",
+    image: "/images/coffee_powder.jpg",
     sizes: [
+      { label: "50 g", priceUGX: 0 },
       { label: "150 g", priceUGX: 0 },
-      { label: "200 g", priceUGX: 0 },
-      { label: "250 g", priceUGX: 0 },
+      { label: "320 g", priceUGX: 0 },
+      { label: "1 kg", priceUGX: 0 },
     ],
     inStock: true,
     tastingNotes: ["Citrus", "Brown sugar", "Bright acidity"],
@@ -83,9 +87,11 @@ export const products: Product[] = [
       "Ideal for cafés, offices and coffee lovers with their own grinder or espresso machine.",
     ],
     tone: "dark",
+    image: "/images/dark-coffee-beans.avif",
     sizes: [
-      { label: "250 g", priceUGX: 0 },
-      { label: "500 g", priceUGX: 0 },
+      { label: "50 g", priceUGX: 0 },
+      { label: "150 g", priceUGX: 0 },
+      { label: "320 g", priceUGX: 0 },
       { label: "1 kg", priceUGX: 0 },
     ],
     inStock: true,
@@ -110,9 +116,12 @@ export const products: Product[] = [
       "It brews into a light, naturally sweet infusion with notes of dried fruit — lovely hot or iced.",
     ],
     tone: "cascara",
+    image: "/images/coffee_cascara.jpg",
     sizes: [
-      { label: "100 g", priceUGX: 0 },
-      { label: "200 g", priceUGX: 0 },
+      { label: "50 g", priceUGX: 0 },
+      { label: "150 g", priceUGX: 0 },
+      { label: "320 g", priceUGX: 0 },
+      { label: "1 kg", priceUGX: 0 },
     ],
     inStock: true,
     tastingNotes: ["Dried cherry", "Hibiscus", "Honey"],

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import PageHeader from "@/components/shared/PageHeader";
@@ -10,7 +11,6 @@ export const metadata = pageMetadata(
   "/our-story",
 );
 
-// TODO: replace the story text with the founder's own words and real photos.
 export default function OurStoryPage() {
   return (
     <>
@@ -20,54 +20,135 @@ export default function OurStoryPage() {
         intro="Cherry's Coffee shares the Arabica of Sipi and Mount Elgon with coffee lovers across Uganda and beyond."
       />
 
-      <section className="py-16">
-        <div className="container-page grid gap-12 lg:grid-cols-[1fr_320px]">
-          <article className="max-w-none space-y-5 text-lg leading-relaxed text-roast">
-            <h2 className="font-serif text-3xl font-bold text-espresso">Where it begins</h2>
-            <p>
-              High on the northern slopes of Mount Elgon in Kapchorwa District lies Sipi Town, famous for its three
-              waterfalls and the green coffee gardens that cover its hills. The cool climate, rich volcanic soil and
-              rainfall make it a wonderful home for Arabica coffee.
+      {/* ── Where it begins ────────────────────────────────────────── */}
+      <section className="py-16" style={{ backgroundColor: "var(--background)" }}>
+        <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
+          {/* Left: text */}
+          <div>
+            <p className="eyebrow">Where it begins</p>
+            <h2
+              className="mt-3 leading-tight"
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.75rem,3vw,2.25rem)", fontWeight: 400, color: "var(--espresso)" }}
+            >
+              High on the slopes of{" "}
+              <em style={{ fontStyle: "italic" }}>Mount Elgon</em>
+            </h2>
+            <p className="mt-5 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
+              Sipi Town, in Kapchorwa District, sits high on the northern slopes of Mount Elgon.
+              The cool climate, rich volcanic soil and generous rainfall make it one of Uganda&apos;s
+              finest homes for Arabica coffee.
             </p>
-            <p>
-              For generations, families here have grown, picked and processed coffee by hand. Cherry&apos;s Coffee was
-              founded to bring that coffee — and its story — straight to your cup.
+            <p className="mt-4 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
+              For generations, families here have grown, picked and processed coffee by hand.
+              Cherry&apos;s Coffee was founded to bring that coffee — and its story — straight to your cup.
             </p>
-            <h2 className="pt-4 font-serif text-3xl font-bold text-espresso">Why &ldquo;Cherry&rdquo;?</h2>
-            <p>
-              Every coffee bean starts life inside a bright red fruit called a coffee cherry. Our name is a reminder
-              that great coffee begins with ripe, carefully picked cherries — and that nothing should go to waste.
-              That&apos;s why we also offer cascara, made from the dried cherry husks.
+            <p className="mt-4 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
+              Every cup carries a naturally sweet taste with a warm caramel finish and a rich aroma
+              that is genuinely a pleasure to breathe in — healthy, soothing and completely natural.
+              Once you smell it, you already know it&apos;s going to be good.
             </p>
-            <h2 className="pt-4 font-serif text-3xl font-bold text-espresso">Our promise</h2>
-            <p>
-              We describe our coffee honestly, pack it with care and stay close to the people and places it comes
-              from. When you order, you talk to us directly.
+            <p
+              className="mt-5 font-medium"
+              style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "1.1rem", color: "var(--accent)" }}
+            >
+              Every cup is naturally sweet — just keep sipping.
             </p>
-          </article>
+          </div>
 
-          <aside className="h-fit space-y-4 rounded-2xl bg-latte/60 p-6">
-            <h2 className="font-serif text-xl font-bold">At a glance</h2>
-            <dl className="space-y-3 text-sm">
-              <div>
-                <dt className="font-semibold">Origin</dt>
-                <dd className="text-roast">Sipi Town, Kapchorwa District</dd>
+          {/* Right: process photo */}
+          <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ borderRadius: "var(--radius)" }}>
+            <Image
+              src="/images/process_coffee.jpeg"
+              alt="Coffee processing in Sipi — from cherry to cup"
+              fill
+              className="object-cover object-center"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Cherry + Our Promise — side by side ────────────────── */}
+      <section className="py-16" style={{ backgroundColor: "var(--secondary)" }}>
+        <div className="container-page grid gap-10 lg:grid-cols-2">
+          {/* Why "Cherry"? */}
+          <div
+            className="p-8"
+            style={{ backgroundColor: "var(--card)", borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
+          >
+            <p className="eyebrow">The name</p>
+            <h2
+              className="mt-3 leading-tight"
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem,2.5vw,2rem)", fontWeight: 400, color: "var(--espresso)" }}
+            >
+              Why &ldquo;Cherry&rdquo;?
+            </h2>
+            <p className="mt-4 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
+              Every coffee bean starts life inside a bright red fruit called a coffee cherry.
+              Our name is a reminder that great coffee begins with ripe, carefully picked
+              cherries — and that nothing should go to waste.
+            </p>
+            <p className="mt-3 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
+              That&apos;s why we also offer cascara: the dried cherry husks brewed into a light,
+              fruity tea-like drink full of natural sweetness.
+            </p>
+          </div>
+
+          {/* Our promise */}
+          <div
+            className="p-8"
+            style={{ backgroundColor: "var(--card)", borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
+          >
+            <p className="eyebrow">Our promise</p>
+            <h2
+              className="mt-3 leading-tight"
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem,2.5vw,2rem)", fontWeight: 400, color: "var(--espresso)" }}
+            >
+              Honest coffee, always
+            </h2>
+            <p className="mt-4 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
+              We describe our coffee honestly, pack it with care and stay close to the people
+              and places it comes from. When you order, you talk to us directly — no middlemen,
+              no surprises.
+            </p>
+            <p className="mt-3 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
+              Available in 50 g, 150 g, 320 g and 1 kg packs, delivered anywhere in Uganda.
+            </p>
+            <Link href="/shop" className="mt-6 btn-accent inline-flex">
+              Shop our coffee
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── At a glance ────────────────────────────────────────────── */}
+      <section className="py-12" style={{ backgroundColor: "var(--background)" }}>
+        <div className="container-page">
+          <div
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 p-8"
+            style={{ backgroundColor: "var(--espresso)", borderRadius: "var(--radius)" }}
+          >
+            {[
+              { label: "Origin", value: "Sipi Town, Kapchorwa" },
+              { label: "Region", value: "Mount Elgon, Eastern Uganda" },
+              { label: "Coffee type", value: "100% Arabica" },
+              { label: "Sizes", value: "50 g · 150 g · 320 g · 1 kg" },
+            ].map(({ label, value }) => (
+              <div key={label}>
+                <p
+                  style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--kraft)" }}
+                >
+                  {label}
+                </p>
+                <p
+                  className="mt-1"
+                  style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--crema)" }}
+                >
+                  {value}
+                </p>
               </div>
-              <div>
-                <dt className="font-semibold">Region</dt>
-                <dd className="text-roast">Mount Elgon, Eastern Uganda</dd>
-              </div>
-              <div>
-                <dt className="font-semibold">Coffee type</dt>
-                <dd className="text-roast">Arabica</dd>
-              </div>
-              <div>
-                <dt className="font-semibold">Products</dt>
-                <dd className="text-roast">Instant coffee, ground coffee, roasted beans, cascara</dd>
-              </div>
-            </dl>
-            <Link href="/shop" className="btn-primary w-full">Shop our coffee</Link>
-          </aside>
+            ))}
+          </div>
         </div>
       </section>
 
