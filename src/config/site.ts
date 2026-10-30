@@ -25,8 +25,8 @@ export const site = {
     region: "Mount Elgon, Eastern Uganda",
   },
 
-  // Get a free access key at https://web3forms.com (it is safe to expose publicly).
-  web3formsKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+  // Web3Forms access key — safe to expose publicly (it only accepts submissions, not reads).
+  web3formsKey: "c87ce459-5e7e-4281-a741-ef4a16f1b32a",
 
   social: {
     facebook: "https://facebook.com/",

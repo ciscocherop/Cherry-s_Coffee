@@ -7,14 +7,10 @@ import { products } from "@/content/products";
 type Status = "idle" | "sending" | "success" | "error";
 
 /**
- * Submits to Web3Forms (https://web3forms.com).
- * Set NEXT_PUBLIC_WEB3FORMS_KEY in .env.local — sign up free at web3forms.com
- * using ciscocherry@gmail.com to get your key, then add:
- *   NEXT_PUBLIC_WEB3FORMS_KEY=your_key_here
- * Messages will arrive directly in your Gmail inbox.
+ * Web3Forms key — safe to include in client code (read-only, submit-only key).
+ * Submissions are delivered to ciscocherry@gmail.com.
  */
-const WEB3FORMS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? site.web3formsKey;
+const WEB3FORMS_KEY = site.web3formsKey;
 
 export default function EnquiryForm({ variant }: { variant: "contact" | "wholesale" }) {
   const [status, setStatus] = useState<Status>("idle");
