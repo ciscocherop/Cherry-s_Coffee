@@ -7,7 +7,7 @@ export const site = {
   description:
     "Arabica coffee from Sipi and the slopes of Mount Elgon, Uganda. Instant coffee, ground coffee, roasted beans and coffee cascara — order easily on WhatsApp.",
   // Used for sitemap, canonical URLs and social previews. Update when the domain is bought.
-  url: "https://cherryscoffee.example.com",
+  url: "https://cherryscoffee.vercel.app",
 
   // WhatsApp number in international format, digits only (no +, spaces or dashes).
   whatsapp: "256703558174",
