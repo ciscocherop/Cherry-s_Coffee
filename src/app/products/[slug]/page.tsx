@@ -7,6 +7,7 @@ import { site } from "@/config/site";
 import ProductVisual from "@/components/products/ProductVisual";
 import OrderPanel from "@/components/products/OrderPanel";
 import ProductCard from "@/components/products/ProductCard";
+import IntensityMeter from "@/components/products/IntensityMeter";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -63,7 +64,10 @@ export default async function ProductPage({ params }: Props) {
               {product.description.map((para) => (
                 <p key={para} className="mt-4 leading-relaxed text-roast">{para}</p>
               ))}
-              <ul className="mt-5 flex flex-wrap gap-2" aria-label="Tasting notes">
+              <div className="mt-5">
+                <IntensityMeter product={product} />
+              </div>
+              <ul className="mt-4 flex flex-wrap gap-2" aria-label="Tasting notes">
                 {product.tastingNotes.map((n) => (
                   <li key={n} className="rounded-full bg-latte px-3 py-1 text-xs font-medium">{n}</li>
                 ))}

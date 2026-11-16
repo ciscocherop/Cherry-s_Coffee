@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/types/product";
 import { ArrowIcon } from "@/components/shared/Icons";
+import IntensityMeter from "./IntensityMeter";
 
 interface Props {
   product: Product;
@@ -89,6 +90,10 @@ export default function ProductCard({ product, index = 0 }: Props) {
             {product.tastingNotes[0]}
           </p>
         )}
+
+        <div className="mt-3">
+          <IntensityMeter product={product} />
+        </div>
 
         {/* Sizes */}
         <div className="mt-3 flex flex-wrap gap-1.5">

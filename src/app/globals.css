@@ -35,6 +35,18 @@
   --color-border: var(--border);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+
+  /* Aliases for class names still used by the inner pages */
+  --color-latte: var(--secondary);
+  --color-roast: var(--primary);
+  --color-mocha: var(--muted-foreground);
+  --color-cherry: var(--accent);
+  --color-cherry-dark: var(--primary);
+  --color-cream: var(--crema);
+  --color-sand: var(--border);
+  --color-gold: var(--kraft);
+  --color-leaf: oklch(0.42 0.06 140);
+  --font-serif: var(--font-display);
 }
 
 /* ─── Base ──────────────────────────────────────────────────────────── */
@@ -192,6 +204,23 @@ body {
 
 .btn-ghost-dark:hover {
   background: var(--espresso-2);
+}
+
+/* ─── Marquee (origin band) ─────────────────────────────────────────── */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
 }
 
 .field:focus {

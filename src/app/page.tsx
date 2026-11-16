@@ -7,13 +7,16 @@ import { whatsappLink } from "@/lib/whatsapp";
 import ProductCard from "@/components/products/ProductCard";
 import ProcessJourney from "@/components/home/ProcessJourney";
 import VisitSipi from "@/components/home/VisitSipi";
+import OriginMarquee from "@/components/home/OriginMarquee";
+import NumberedStories from "@/components/home/NumberedStories";
+import CoffeeProfileQuiz from "@/components/home/CoffeeProfileQuiz";
 import { ArrowIcon, WhatsAppIcon } from "@/components/shared/Icons";
 
 const reasons = [
-  { title: "Single origin", text: "Arabica from Sipi and the slopes of Mount Elgon, Eastern Uganda." },
-  { title: "Highland grown", text: "Cool mountain air lets cherries ripen slowly for a sweeter, more complex cup." },
-  { title: "Nothing wasted", text: "Even the cherry husks are dried and turned into our fruity cascara." },
-  { title: "Easy ordering", text: "Order on WhatsApp in seconds — we confirm price and delivery with you." },
+  { title: "One origin, one story", text: "Every bean comes from Sipi and the slopes of Mount Elgon. You always know where your cup began." },
+  { title: "Ripened slowly", text: "Cool mountain air gives cherries time to ripen, and time is what builds sweetness and depth." },
+  { title: "Nothing wasted", text: "Even the cherry husks are sun-dried and turned into our fruity cascara." },
+  { title: "Made for sharing", text: "Coffee is a reason to pause and gather. Order on WhatsApp and we'll bring the cup to you." },
 ];
 
 const heroStats = [
@@ -83,8 +86,8 @@ export default function Home() {
               className="mt-6 max-w-md leading-relaxed"
               style={{ fontSize: "18px", color: "oklch(0.78 0.09 70 / 0.8)" }}
             >
-              Rich Arabica grown around Sipi, Uganda — from instant dark roast to
-              whole beans and fruity cascara. Naturally sweet, always fresh.
+              Coffee that wakes up the morning and carries a story from the hills of
+              Sipi, Uganda. Hand-picked, slowly ripened, roasted with heart.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/shop" className="btn-primary">
@@ -125,6 +128,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <OriginMarquee />
+      <NumberedStories />
 
       {/* ── Products grid ────────────────────────────────────────────── */}
       <section className="py-20" style={{ backgroundColor: "var(--background)" }}>
@@ -215,13 +221,14 @@ export default function Home() {
               <em style={{ fontStyle: "italic" }}>beneath the falls</em>.
             </h2>
             <p className="mt-5 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
-              Sipi, in Kapchorwa District, sits high on the northern slopes of Mount Elgon.
-              Cool air, rich volcanic soils and generations of farming know-how make it one
-              of Uganda&apos;s special places for Arabica coffee.
+              High on the northern slopes of Mount Elgon, beneath the waterfalls of Sipi,
+              families have tended coffee for generations. Cool air, volcanic soil and
+              patient hands make it one of Uganda&apos;s special places for Arabica.
             </p>
             <p className="mt-4 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
-              Cherry&apos;s Coffee was started to share that coffee with homes, offices and
-              cafés across Uganda and beyond. Every cup is naturally sweet — just keep sipping.
+              Cherry&apos;s Coffee was started to carry that coffee — and the people behind
+              it — to homes, offices and cafés across Uganda and beyond. Take a moment,
+              pour a cup, and keep sipping.
             </p>
             <Link href="/our-story" className="mt-8 btn-accent inline-flex">
               Read our story <ArrowIcon />
@@ -256,6 +263,8 @@ export default function Home() {
 
       {/* ── Process journey ──────────────────────────────────────────── */}
       <ProcessJourney />
+
+      <CoffeeProfileQuiz />
 
       {/* ── Visit Sipi ───────────────────────────────────────────────── */}
       <VisitSipi />

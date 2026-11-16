@@ -21,8 +21,8 @@ export default function ShopPage() {
       <section className="py-16">
         <div className="container-page">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((p) => (
-              <ProductCard key={p.slug} product={p} />
+            {products.map((p, i) => (
+              <ProductCard key={p.slug} product={p} index={i} />
             ))}
           </div>
           <div className="mt-14 grid gap-6 rounded-2xl bg-latte/50 p-8 md:grid-cols-3">

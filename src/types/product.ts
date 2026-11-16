@@ -23,6 +23,9 @@ export type Product = {
   sizes: ProductSize[];
   inStock: boolean;
   tastingNotes: string[];
+  // Strength of the cup on a 1–5 scale, shown as dots on cards and product pages.
+  intensity: 1 | 2 | 3 | 4 | 5;
+  roast: "Light" | "Medium" | "Medium-dark" | "Dark";
   brewGuide: { title: string; steps: string[] };
   ingredients: string;
   nutrition?: { servingSize: string; servingsPerContainer: string; rows: NutritionRow[] };

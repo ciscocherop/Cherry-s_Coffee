@@ -1,5 +1,7 @@
 import type { Product } from "@/types/product";
 
+// TODO: intensity (1–5) and roast levels are estimates — confirm them with your roaster.
+
 export const products: Product[] = [
   {
     slug: "organic-instant-coffee-dark-roast",
@@ -11,6 +13,8 @@ export const products: Product[] = [
       "The aroma and full flavour of our instant coffee will tempt you into a second cup.",
     ],
     tone: "instant",
+    intensity: 4,
+    roast: "Dark",
     image: "/images/types_of_coffee.jpeg",
     sizes: [
       { label: "50 g", priceUGX: 0 },
@@ -57,6 +61,8 @@ export const products: Product[] = [
       "A medium grind that suits French press, moka pot, pour-over and the traditional Ugandan way of boiling coffee.",
     ],
     tone: "medium",
+    intensity: 3,
+    roast: "Medium",
     image: "/images/coffee_powder.jpg",
     sizes: [
       { label: "50 g", priceUGX: 0 },
@@ -87,6 +93,8 @@ export const products: Product[] = [
       "Ideal for cafés, offices and coffee lovers with their own grinder or espresso machine.",
     ],
     tone: "dark",
+    intensity: 4,
+    roast: "Medium-dark",
     image: "/images/dark-coffee-beans.avif",
     sizes: [
       { label: "50 g", priceUGX: 0 },
@@ -116,6 +124,8 @@ export const products: Product[] = [
       "It brews into a light, naturally sweet infusion with notes of dried fruit — lovely hot or iced.",
     ],
     tone: "cascara",
+    intensity: 1,
+    roast: "Light",
     image: "/images/coffee_cascara.jpg",
     sizes: [
       { label: "50 g", priceUGX: 0 },
