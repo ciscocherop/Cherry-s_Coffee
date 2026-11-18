@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import PageHeader from "@/components/shared/PageHeader";
 import ProcessJourney from "@/components/home/ProcessJourney";
 import VisitSipi from "@/components/home/VisitSipi";
 import GrownWithCare from "@/components/home/GrownWithCare";
+import LoopVideo from "@/components/shared/LoopVideo";
 
 export const metadata = pageMetadata(
   "Our Story",
@@ -57,14 +57,14 @@ export default function OurStoryPage() {
           </div>
 
           {/* Right: process photo */}
-          <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ borderRadius: "var(--radius)" }}>
-            <Image
-              src="/images/process_coffee.jpeg"
-              alt="Coffee processing in Sipi — from cherry to cup"
-              fill
-              className="object-cover object-center"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-            />
+          {/* Tall frame for the portrait clip of hands holding ripe cherries */}
+          <div
+            className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden"
+            style={{ borderRadius: "9999px 9999px 2rem 2rem", boxShadow: "0 40px 80px -40px oklch(0.17 0.025 40 / 0.6)" }}
+            role="img"
+            aria-label="Hands holding freshly picked ripe coffee cherries"
+          >
+            <LoopVideo src="/videos/holding-ripe-cherries.mp4" poster="/videos/holding-ripe-cherries-poster.jpg" />
           </div>
         </div>
       </section>
@@ -154,7 +154,7 @@ export default function OurStoryPage() {
       </section>
 
       <ProcessJourney />
-      <GrownWithCare image="/images/process_coffee.jpeg" />
+      <GrownWithCare video="/videos/misty-mountain.mp4" image="/videos/misty-mountain-poster.jpg" />
       <VisitSipi />
     </>
   );

@@ -11,10 +11,10 @@ import { useScrollProgress } from "@/lib/useScrollProgress";
 const steps: { title: string; text: string; image: string; video?: string }[] = [
   { title: "Picking", text: "Ripe red cherries are hand-picked from coffee gardens on the slopes of Mount Elgon.", image: "/videos/coffee-picking-poster.jpg", video: "/videos/coffee-picking.mp4" },
   { title: "Wet processing", text: "Skin and pulp are removed and the beans are washed for a clean, bright cup.", image: "/videos/coffee-pulping-poster.jpg", video: "/videos/coffee-pulping.mp4" },
-  { title: "Dry processing", text: "Beans are sun-dried on raised beds. The dried husks become our cascara.", image: "/images/process_coffee.jpeg" },
-  { title: "Hulling", text: "The parchment layer is removed to reveal the green coffee bean.", image: "/images/coffee_cascara.jpg" },
+  { title: "Dry processing", text: "Cherries are spread out and sun-dried until crisp. The dried husks become our cascara.", image: "/videos/hulling-green-beans-poster.jpg", video: "/videos/hulling-green-beans.mp4" },
+  { title: "Hulling", text: "The parchment layer is removed to reveal the green coffee bean, then sorted by hand.", image: "/videos/drying-beans-poster.jpg", video: "/videos/drying-beans.mp4" },
   { title: "Roasting", text: "Small-batch roasting draws out deep aroma, sweetness and flavour.", image: "/videos/coffee-roasting-poster.jpg", video: "/videos/coffee-roasting.mp4" },
-  { title: "Your cup", text: "Packed fresh and delivered to you — ready to brew and enjoy.", image: "/images/branding.jpeg" },
+  { title: "Your cup", text: "Packed fresh and delivered to you — ready to brew and enjoy. Keep sipping!!!", image: "/videos/pouring-coffee-into-cup-poster.jpg", video: "/videos/pouring-coffee-into-cup.mp4" },
 ];
 
 type Pt = { x: number; y: number };
