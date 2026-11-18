@@ -206,22 +206,6 @@ body {
   background: var(--espresso-2);
 }
 
-/* ─── Marquee (origin band) ─────────────────────────────────────────── */
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
 
 /* ─── Floating nav offset ───────────────────────────────────────────── */
 /* The header floats over the page, so <main> reserves its height and

@@ -7,7 +7,6 @@ import { whatsappLink } from "@/lib/whatsapp";
 import ProductCard from "@/components/products/ProductCard";
 import ProcessJourney from "@/components/home/ProcessJourney";
 import VisitSipi from "@/components/home/VisitSipi";
-import OriginMarquee from "@/components/home/OriginMarquee";
 import NumberedStories from "@/components/home/NumberedStories";
 import CoffeeProfileQuiz from "@/components/home/CoffeeProfileQuiz";
 import LoopVideo from "@/components/shared/LoopVideo";
@@ -137,7 +136,6 @@ export default function Home() {
         </div>
       </section>
 
-      <OriginMarquee />
       <NumberedStories />
 
       {/* ── Packaging showcase ───────────────────────────────────────── */}
