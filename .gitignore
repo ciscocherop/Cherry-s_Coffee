@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Original 4K video masters (compressed copies live in public/videos)
+/video-sources

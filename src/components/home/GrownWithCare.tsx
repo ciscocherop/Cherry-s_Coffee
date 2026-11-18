@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useScrollProgress } from "@/lib/useScrollProgress";
+import LoopVideo from "@/components/shared/LoopVideo";
 
 // TODO: confirm these sustainability statements with the farmers you buy from.
 const panels = [
@@ -28,7 +29,7 @@ const mix = (a: number, b: number, t: number) => a + (b - a) * t;
  * A tall section with a pinned photo. As you scroll, the colour wash over the
  * photo shifts from roasted brown to Mount Elgon green and the statements change.
  */
-export default function GrownWithCare({ image = "/images/sipifalls.jpg" }: { image?: string }) {
+export default function GrownWithCare({ image = "/images/sipifalls.jpg", video }: { image?: string; video?: string }) {
   const [ref, p] = useScrollProgress<HTMLElement>("sticky");
 
   // espresso oklch(0.17 0.025 40) → leaf oklch(0.34 0.09 150)
@@ -38,14 +39,22 @@ export default function GrownWithCare({ image = "/images/sipifalls.jpg" }: { ima
   return (
     <section ref={ref} className="relative" style={{ height: "260vh" }}>
       <div className="sticky top-0 h-screen overflow-hidden">
-        <Image
-          src={image}
-          alt="Coffee country around Sipi, Mount Elgon"
-          fill
-          className="object-cover"
-          sizes="100vw"
-          style={{ transform: `scale(${mix(1.15, 1, p)})`, transition: "transform 0.1s linear" }}
-        />
+        {video ? (
+          <LoopVideo
+            src={video}
+            poster={image}
+            style={{ transform: `scale(${mix(1.15, 1, p)})`, transition: "transform 0.1s linear" }}
+          />
+        ) : (
+          <Image
+            src={image}
+            alt="Coffee country around Sipi, Mount Elgon"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            style={{ transform: `scale(${mix(1.15, 1, p)})`, transition: "transform 0.1s linear" }}
+          />
+        )}
         {/* Colour wash that turns green as you scroll */}
         <div aria-hidden="true" className="absolute inset-0" style={{ background: `linear-gradient(to top, ${wash} 0%, ${wash} 35%, oklch(0.17 0.025 40 / 0.25) 100%)` }} />
 

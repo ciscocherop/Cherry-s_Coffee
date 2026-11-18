@@ -10,7 +10,7 @@ import VisitSipi from "@/components/home/VisitSipi";
 import OriginMarquee from "@/components/home/OriginMarquee";
 import NumberedStories from "@/components/home/NumberedStories";
 import CoffeeProfileQuiz from "@/components/home/CoffeeProfileQuiz";
-import HeroVideo from "@/components/home/HeroVideo";
+import LoopVideo from "@/components/shared/LoopVideo";
 import GrownWithCare from "@/components/home/GrownWithCare";
 import PackageBag from "@/components/products/PackageBag";
 import Reveal from "@/components/shared/Reveal";
@@ -46,7 +46,8 @@ export default function Home() {
             priority
             sizes="100vw"
           />
-          <HeroVideo />
+          {/* Roasting beans; the banner photo shows until it's ready */}
+          <LoopVideo src="/videos/coffee-roasting.mp4" />
         </div>
 
         {/* Dark gradient scrim from left */}
@@ -316,7 +317,7 @@ export default function Home() {
       {/* ── Process journey ──────────────────────────────────────────── */}
       <ProcessJourney />
 
-      <GrownWithCare />
+      <GrownWithCare video="/videos/coffee-picking.mp4" image="/videos/coffee-picking-poster.jpg" />
 
       <CoffeeProfileQuiz />
 

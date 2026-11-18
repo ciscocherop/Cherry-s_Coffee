@@ -3,14 +3,17 @@
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Reveal from "@/components/shared/Reveal";
+import LoopVideo from "@/components/shared/LoopVideo";
 import { useScrollProgress } from "@/lib/useScrollProgress";
 
-const steps = [
-  { title: "Picking", text: "Ripe red cherries are hand-picked from coffee gardens on the slopes of Mount Elgon.", image: "/images/sipifalls.jpg" },
-  { title: "Wet processing", text: "Skin and pulp are removed and the beans are washed for a clean, bright cup.", image: "/images/processing.jpeg" },
+// Steps with a `video` play it (muted, looping, only while on screen); the
+// image is used as its poster/fallback.
+const steps: { title: string; text: string; image: string; video?: string }[] = [
+  { title: "Picking", text: "Ripe red cherries are hand-picked from coffee gardens on the slopes of Mount Elgon.", image: "/videos/coffee-picking-poster.jpg", video: "/videos/coffee-picking.mp4" },
+  { title: "Wet processing", text: "Skin and pulp are removed and the beans are washed for a clean, bright cup.", image: "/videos/coffee-pulping-poster.jpg", video: "/videos/coffee-pulping.mp4" },
   { title: "Dry processing", text: "Beans are sun-dried on raised beds. The dried husks become our cascara.", image: "/images/process_coffee.jpeg" },
   { title: "Hulling", text: "The parchment layer is removed to reveal the green coffee bean.", image: "/images/coffee_cascara.jpg" },
-  { title: "Roasting", text: "Small-batch roasting draws out deep aroma, sweetness and flavour.", image: "/images/dark-coffee-beans.avif" },
+  { title: "Roasting", text: "Small-batch roasting draws out deep aroma, sweetness and flavour.", image: "/videos/coffee-roasting-poster.jpg", video: "/videos/coffee-roasting.mp4" },
   { title: "Your cup", text: "Packed fresh and delivered to you — ready to brew and enjoy.", image: "/images/branding.jpeg" },
 ];
 
@@ -184,13 +187,17 @@ export default function ProcessJourney() {
                       className="relative aspect-[4/3] overflow-hidden"
                       style={{ borderRadius: i % 3 === 0 ? "9999px 9999px 2rem 2rem" : "2rem", boxShadow: "0 30px 60px -30px #000" }}
                     >
-                      <Image
-                        src={step.image}
-                        alt={step.title}
-                        fill
-                        className="object-cover transition-transform duration-700 hover:scale-105"
-                        sizes="(min-width: 768px) 45vw, 100vw"
-                      />
+                      {step.video ? (
+                        <LoopVideo src={step.video} poster={step.image} />
+                      ) : (
+                        <Image
+                          src={step.image}
+                          alt={step.title}
+                          fill
+                          className="object-cover transition-transform duration-700 hover:scale-105"
+                          sizes="(min-width: 768px) 45vw, 100vw"
+                        />
+                      )}
                     </div>
                   </Reveal>
                 </li>
