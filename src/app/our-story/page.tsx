@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
-import PageHeader from "@/components/shared/PageHeader";
+import ZoomOutHero from "@/components/story/ZoomOutHero";
+import HistoryChapters from "@/components/story/HistoryChapters";
 import ProcessJourney from "@/components/home/ProcessJourney";
 import VisitSipi from "@/components/home/VisitSipi";
 import GrownWithCare from "@/components/home/GrownWithCare";
@@ -15,11 +16,8 @@ export const metadata = pageMetadata(
 export default function OurStoryPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Our story"
-        title="Coffee with roots in Sipi"
-        intro="Cherry's Coffee shares the Arabica of Sipi and Mount Elgon with coffee lovers across Uganda and beyond."
-      />
+      {/* Zooms out from a handful of cherries to the whole mountain */}
+      <ZoomOutHero />
 
       {/* ── Where it begins ────────────────────────────────────────── */}
       <section className="py-16" style={{ backgroundColor: "var(--background)" }}>
@@ -56,7 +54,6 @@ export default function OurStoryPage() {
             </p>
           </div>
 
-          {/* Right: process photo */}
           {/* Tall frame for the portrait clip of hands holding ripe cherries */}
           <div
             className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden"
@@ -69,32 +66,12 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* ── Why Cherry + Our Promise — side by side ────────────────── */}
-      <section className="py-16" style={{ backgroundColor: "var(--secondary)" }}>
-        <div className="container-page grid gap-10 lg:grid-cols-2">
-          {/* Why "Cherry"? */}
-          <div
-            className="p-8"
-            style={{ backgroundColor: "var(--card)", borderRadius: "var(--radius)", border: "1px solid var(--border)" }}
-          >
-            <p className="eyebrow">The name</p>
-            <h2
-              className="mt-3 leading-tight"
-              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem,2.5vw,2rem)", fontWeight: 400, color: "var(--espresso)" }}
-            >
-              Why &ldquo;Cherry&rdquo;?
-            </h2>
-            <p className="mt-4 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
-              Every coffee bean starts life inside a bright red fruit called a coffee cherry.
-              Our name is a reminder that great coffee begins with ripe, carefully picked
-              cherries — and that nothing should go to waste.
-            </p>
-            <p className="mt-3 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
-              That&apos;s why we also offer cascara: the dried cherry husks brewed into a light,
-              fruity tea-like drink full of natural sweetness.
-            </p>
-          </div>
+      {/* ── Chapters ───────────────────────────────────────────────── */}
+      <HistoryChapters />
 
+      {/* ── Our promise ────────────────────────────────────────────── */}
+      <section className="py-16" style={{ backgroundColor: "var(--secondary)" }}>
+        <div className="container-page max-w-3xl">
           {/* Our promise */}
           <div
             className="p-8"
