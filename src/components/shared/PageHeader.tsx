@@ -8,7 +8,7 @@ export default function PageHeader({
   intro?: string;
 }) {
   return (
-    <section style={{ borderBottom: "1px solid var(--border)", backgroundColor: "var(--secondary)" }}>
+    <section className="under-nav" style={{ borderBottom: "1px solid var(--border)", backgroundColor: "var(--secondary)" }}>
       <div className="container-page py-14 sm:py-20">
         <p className="eyebrow">{eyebrow}</p>
         <h1

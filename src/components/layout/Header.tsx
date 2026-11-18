@@ -19,6 +19,24 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  // Hide on scroll down, show on scroll up; firmer background once scrolled.
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      if (Math.abs(y - lastY) > 6) {
+        setHidden(y > lastY && y > 160);
+        lastY = y;
+      }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
@@ -26,8 +44,8 @@ export default function Header() {
     <>
       <style>{`
         .nav-link { color: var(--muted-foreground); transition: color 0.2s; }
-        .nav-link:hover { color: var(--primary); }
-        .nav-link.active { color: var(--accent); }
+        .nav-link:hover { color: var(--primary); background: oklch(0.89 0.035 70 / 0.6); }
+        .nav-link.active { color: var(--accent); background: oklch(0.89 0.035 70 / 0.8); }
 
         /* Mobile drawer */
         .mobile-drawer {
@@ -96,56 +114,73 @@ export default function Header() {
         .drawer-nav-item.active .step-dot { background: var(--accent); }
       `}</style>
 
+      {/* Floating pill navbar: centred, never touches the page edges.
+          Slides away while scrolling down, comes back when scrolling up. */}
       <header
-        className="sticky top-0 border-b border-border"
+        className="fixed inset-x-0 top-0 flex justify-center px-3 pt-3 sm:px-6 sm:pt-4"
         style={{
           zIndex: 100,
-          backgroundColor: "oklch(0.955 0.018 75 / 0.95)",
-          backdropFilter: "blur(12px)",
+          pointerEvents: "none",
+          transform: hidden && !open ? "translateY(-130%)" : "translateY(0)",
+          transition: "transform 0.45s cubic-bezier(0.4,0,0.2,1)",
         }}
       >
-        <div className="container-page flex h-16 items-center justify-between">
+        <div
+          className="flex w-full max-w-5xl items-center justify-between rounded-full py-2 pl-3 pr-2 sm:pl-4"
+          style={{
+            pointerEvents: "auto",
+            backgroundColor: scrolled ? "oklch(0.975 0.012 78 / 0.92)" : "oklch(0.975 0.012 78 / 0.8)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
+            border: "1px solid oklch(0.82 0.035 65 / 0.7)",
+            boxShadow: scrolled
+              ? "0 12px 32px -12px oklch(0.17 0.025 40 / 0.35)"
+              : "0 6px 20px -12px oklch(0.17 0.025 40 / 0.25)",
+            transition: "background-color 0.3s, box-shadow 0.3s",
+          }}
+        >
           {/* Logo — clicking always goes home */}
-          <Link href="/" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2">
             <CherryMark className="h-9 w-9 text-accent" />
             <span className="leading-tight">
               <span
-                className="block text-lg font-bold text-espresso"
+                className="block text-base font-bold text-espresso sm:text-lg"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {site.name}
               </span>
-              <span className="eyebrow block" style={{ color: "var(--muted-foreground)" }}>
+              <span className="eyebrow block" style={{ color: "var(--muted-foreground)", fontSize: "10px" }}>
                 {site.tagline}
               </span>
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
+          <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
             {nav.slice(1).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`nav-link${isActive(item.href) ? " active" : ""}`}
+                className={`nav-link rounded-full px-3 py-2${isActive(item.href) ? " active" : ""}`}
                 style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 500 }}
               >
                 {item.label}
               </Link>
             ))}
-            <Link href="/shop" className="btn-accent">Order now</Link>
+            <Link href="/shop" className="btn-accent ml-2">Order now</Link>
           </nav>
 
           {/* Mobile burger */}
           <button
             type="button"
-            className="rounded-sm p-2 text-primary md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-primary md:hidden"
+            style={{ backgroundColor: "var(--secondary)" }}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-drawer"
             onClick={() => setOpen((v) => !v)}
           >
-            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.75">
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.75">
               {open
                 ? <path strokeLinecap="round" d="M6 6l12 12M18 6 6 18" />
                 : <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />}
@@ -209,7 +244,7 @@ export default function Header() {
               className="mt-4 text-center"
               style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--kraft)" }}
             >
-              Keep Sipping
+              {site.tagline}
             </p>
           </div>
         </div>

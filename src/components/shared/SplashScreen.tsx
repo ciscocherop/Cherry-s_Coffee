@@ -124,7 +124,7 @@ export default function SplashScreen() {
             animation: "splashFadeIn 0.5s 1s ease both",
           }}
         >
-          Keep Sipping
+          Keep Sipping!!!
         </p>
       </div>
 

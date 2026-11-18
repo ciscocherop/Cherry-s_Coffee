@@ -223,6 +223,76 @@ body {
   .marquee-track { animation: none; }
 }
 
+/* ─── Floating nav offset ───────────────────────────────────────────── */
+/* The header floats over the page, so <main> reserves its height and
+   full-bleed openers (hero, page headers) pull themselves back under it. */
+:root { --nav-h: 92px; }
+
+.site-main { padding-top: var(--nav-h); }
+
+.under-nav {
+  margin-top: calc(-1 * var(--nav-h));
+  padding-top: var(--nav-h);
+}
+
+/* ─── Footer reveal ─────────────────────────────────────────────────── */
+/* Page content is a "card" that scrolls up to uncover a footer pinned
+   underneath it. Desktop only: on phones the footer is taller than the screen. */
+.site-main {
+  position: relative;
+  z-index: 10;
+  background: var(--background);
+  overflow: clip;
+}
+
+@media (min-width: 768px) {
+  .site-main {
+    border-bottom-left-radius: 2.5rem;
+    border-bottom-right-radius: 2.5rem;
+    box-shadow: 0 30px 60px -20px oklch(0.17 0.025 40 / 0.45);
+  }
+  .site-footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 0;
+  }
+}
+
+/* ─── Scroll reveal ─────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal-up { transform: translateY(36px); }
+.reveal-left { transform: translateX(-48px); }
+.reveal-right { transform: translateX(48px); }
+.reveal-scale { transform: scale(0.92); }
+.reveal[data-visible="true"] { opacity: 1; transform: none; }
+
+/* ─── Hero ──────────────────────────────────────────────────────────── */
+@keyframes slowZoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+.hero-media { animation: slowZoom 9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+@keyframes floatBag {
+  0%, 100% { transform: translateY(0) rotate(var(--tilt, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--tilt, 0deg)); }
+}
+.float-bag { animation: floatBag 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-media, .float-bag { animation: none; }
+}
+
 .field:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px oklch(0.52 0.17 30 / 0.15);

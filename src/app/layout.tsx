@@ -55,7 +55,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         <SplashScreen />
         <Header />
-        <main>
+        <main className="site-main">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />

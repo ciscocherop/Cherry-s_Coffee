@@ -6,13 +6,45 @@ import { whatsappLink } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
-    <footer className="bg-espresso text-kraft">
+    // Sticky on desktop: the page content scrolls up off it like a lifted card.
+    <footer className="site-footer bg-espresso text-kraft">
       {/* inline style block for hover effects (server-safe) */}
       <style>{`
         .footer-link:hover { color: var(--crema); }
       `}</style>
 
-      <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Big sign-off */}
+      <div className="container-page pt-16 md:pt-24">
+        <p
+          className="leading-none"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontStyle: "italic",
+            fontSize: "clamp(3rem, 11vw, 9rem)",
+            fontWeight: 400,
+            color: "var(--crema)",
+            letterSpacing: "-0.02em",
+          }}
+        >
+          {site.tagline}
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <Link href="/shop" className="btn-primary">Shop our coffee</Link>
+          <a
+            href={whatsappLink(`Hello ${site.name}! I would like to place an order.`)}
+            className="btn-outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <WhatsAppIcon className="h-4 w-4" /> Order on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div
+        className="container-page mt-14 grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4"
+        style={{ borderTop: "1px solid oklch(0.78 0.09 70 / 0.12)" }}
+      >
         {/* Brand */}
         <div>
           <div className="flex items-center gap-2">

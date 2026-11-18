@@ -5,7 +5,7 @@ const words = [
   "Hand-picked",
   "Sun-dried",
   "Small-batch roasted",
-  "Keep Sipping",
+  "Keep Sipping!!!",
 ];
 
 export default function OriginMarquee() {

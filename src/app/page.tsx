@@ -10,6 +10,10 @@ import VisitSipi from "@/components/home/VisitSipi";
 import OriginMarquee from "@/components/home/OriginMarquee";
 import NumberedStories from "@/components/home/NumberedStories";
 import CoffeeProfileQuiz from "@/components/home/CoffeeProfileQuiz";
+import HeroVideo from "@/components/home/HeroVideo";
+import GrownWithCare from "@/components/home/GrownWithCare";
+import PackageBag from "@/components/products/PackageBag";
+import Reveal from "@/components/shared/Reveal";
 import { ArrowIcon, WhatsAppIcon } from "@/components/shared/Icons";
 
 const reasons = [
@@ -31,16 +35,19 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ minHeight: "90vh", display: "flex", alignItems: "center" }}>
-        {/* Background photo */}
-        <Image
-          src="/images/banner.png"
-          alt="Coffee from the slopes of Mount Elgon"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
+      <section className="under-nav relative overflow-hidden" style={{ minHeight: "100svh", display: "flex", alignItems: "center" }}>
+        {/* Background photo with a slow settle-in zoom; video plays over it when available */}
+        <div className="hero-media absolute inset-0">
+          <Image
+            src="/images/banner.png"
+            alt="Coffee from the slopes of Mount Elgon"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          <HeroVideo />
+        </div>
 
         {/* Dark gradient scrim from left */}
         <div
@@ -131,6 +138,49 @@ export default function Home() {
 
       <OriginMarquee />
       <NumberedStories />
+
+      {/* ── Packaging showcase ───────────────────────────────────────── */}
+      <section className="relative overflow-hidden py-24" style={{ backgroundColor: "var(--espresso)" }}>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-[60%] h-[70vw] max-h-[720px] w-[70vw] max-w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{ background: "radial-gradient(circle, oklch(0.52 0.17 30 / 0.35), transparent 65%)" }}
+        />
+        <div className="container-page relative">
+          <Reveal className="mx-auto max-w-xl text-center">
+            <p className="eyebrow-crema">The Cherry&apos;s range</p>
+            <h2
+              className="mt-3 leading-tight"
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.25rem, 5vw, 3.5rem)", fontWeight: 400, color: "var(--crema)" }}
+            >
+              Sipi&apos;s finest, <em style={{ fontStyle: "italic", color: "var(--kraft)" }}>packed fresh</em>.
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4">
+            {products.map((p, i) => (
+              <Reveal key={p.slug} delay={i * 120}>
+                <Link href={`/products/${p.slug}`} className="group block text-center">
+                  <div
+                    className="float-bag mx-auto w-[85%]"
+                    style={{ animationDelay: `${i * -1.5}s`, ["--tilt" as string]: `${[-4, 3, -2, 4][i]}deg` }}
+                  >
+                    <div className="transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105">
+                      <PackageBag tone={p.tone} className="w-full drop-shadow-[0_30px_30px_rgba(0,0,0,0.55)]" />
+                    </div>
+                  </div>
+                  <p className="mt-6" style={{ fontFamily: "var(--font-display)", fontSize: "18px", color: "var(--crema)" }}>
+                    {p.category}
+                  </p>
+                  <p className="mt-1 inline-flex items-center gap-1 transition-colors group-hover:text-[var(--crema)]" style={{ fontSize: "13px", color: "var(--kraft)" }}>
+                    View <ArrowIcon className="h-3.5 w-3.5" />
+                  </p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── Products grid ────────────────────────────────────────────── */}
       <section className="py-20" style={{ backgroundColor: "var(--background)" }}>
@@ -228,7 +278,7 @@ export default function Home() {
             <p className="mt-4 leading-relaxed" style={{ fontSize: "15px", color: "var(--primary)" }}>
               Cherry&apos;s Coffee was started to carry that coffee — and the people behind
               it — to homes, offices and cafés across Uganda and beyond. Take a moment,
-              pour a cup, and keep sipping.
+              pour a cup, and keep sipping!!!
             </p>
             <Link href="/our-story" className="mt-8 btn-accent inline-flex">
               Read our story <ArrowIcon />
@@ -237,13 +287,14 @@ export default function Home() {
 
           {/* Reason cards */}
           <ul className="grid gap-4 sm:grid-cols-2">
-            {reasons.map((r) => (
-              <li
-                key={r.title}
-                className="p-6"
+            {reasons.map((r, i) => (
+              <li key={r.title}>
+              <Reveal
+                delay={i * 100}
+                className="h-full p-6"
                 style={{
                   backgroundColor: "var(--card)",
-                  borderRadius: "var(--radius)",
+                  borderRadius: "1.25rem",
                   border: "1px solid var(--border)",
                 }}
               >
@@ -255,6 +306,7 @@ export default function Home() {
                 <p className="mt-2 leading-relaxed" style={{ fontSize: "14px", color: "var(--primary)" }}>
                   {r.text}
                 </p>
+              </Reveal>
               </li>
             ))}
           </ul>
@@ -263,6 +315,8 @@ export default function Home() {
 
       {/* ── Process journey ──────────────────────────────────────────── */}
       <ProcessJourney />
+
+      <GrownWithCare />
 
       <CoffeeProfileQuiz />
 

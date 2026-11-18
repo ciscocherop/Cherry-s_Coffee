@@ -4,6 +4,7 @@ import { pageMetadata } from "@/lib/seo";
 import PageHeader from "@/components/shared/PageHeader";
 import ProcessJourney from "@/components/home/ProcessJourney";
 import VisitSipi from "@/components/home/VisitSipi";
+import GrownWithCare from "@/components/home/GrownWithCare";
 
 export const metadata = pageMetadata(
   "Our Story",
@@ -51,7 +52,7 @@ export default function OurStoryPage() {
               className="mt-5 font-medium"
               style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "1.1rem", color: "var(--accent)" }}
             >
-              Every cup is naturally sweet — just keep sipping.
+              Every cup is naturally sweet — just keep sipping!!!
             </p>
           </div>
 
@@ -153,6 +154,7 @@ export default function OurStoryPage() {
       </section>
 
       <ProcessJourney />
+      <GrownWithCare image="/images/process_coffee.jpeg" />
       <VisitSipi />
     </>
   );

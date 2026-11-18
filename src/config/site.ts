@@ -3,7 +3,7 @@
 
 export const site = {
   name: "Cherry's Coffee",
-  tagline: "Keep Sipping",
+  tagline: "Keep Sipping!!!",
   description:
     "Arabica coffee from Sipi and the slopes of Mount Elgon, Uganda. Instant coffee, ground coffee, roasted beans and coffee cascara — order easily on WhatsApp.",
   // Used for sitemap, canonical URLs and social previews. Update when the domain is bought.
