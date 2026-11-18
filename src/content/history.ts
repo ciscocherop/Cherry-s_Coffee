@@ -1,7 +1,9 @@
 // The Cherry's Coffee story, told in chapters (shown on /our-story).
-// TODO: add real years and names where you have them — e.g. the year Cherry's
-// Coffee was founded, the first sale, the first café customer. Each milestone's
-// `marker` is shown like "— 2025 —"; it can be a year or a short label.
+// Each milestone's `marker` is shown like "— March 2026 —"; it can be a date or a
+// short label. Founding date and founder names come from src/config/site.ts.
+import { site } from "@/config/site";
+
+const founded = `${site.founded.month} ${site.founded.year}`;
 
 export type Milestone = {
   marker: string;
@@ -66,42 +68,57 @@ export const chapters: Chapter[] = [
   {
     numeral: "III",
     title: "Cherry's Coffee is born",
-    span: "From Sipi to your cup",
+    span: `${founded} — a student with a big idea`,
     milestones: [
       {
-        marker: "The beginning",
+        marker: founded,
         label: "Foundation",
-        title: "Carrying Sipi coffee further",
-        text: "Cherry's Coffee was started to carry the coffee of Sipi — and the people behind it — to homes, offices and cafés across Uganda and beyond.",
+        title: `Started by ${site.founder.known}`,
+        text: `Cherry's Coffee was started in ${founded} by ${site.founder.official} — known to friends as ${site.founder.known} — while still a student, with one goal: to carry the coffee of Sipi to more cups.`,
         image: "/images/branding1.jpeg",
       },
       {
-        marker: "The range",
-        label: "Sipi's finest",
-        title: "Four coffees, four sizes",
-        text: "Instant dark roast, ground powder, whole roasted beans and cascara — packed fresh in 50 g, 150 g, 320 g and 1 kg packs.",
+        marker: "The first sale",
+        label: "Cup number one",
+        title: "Sold to a classmate",
+        // TODO: add Julius's surname only with his permission.
+        text: "The very first sale went to Julius, a fellow student. From that one bag, Cherry's Coffee was on its way.",
+        quote: "Every big story starts with one cup.",
+      },
+      {
+        marker: "Word spreads",
+        label: "On campus",
+        title: "Lecturers, then more students",
+        text: "From one classmate, the coffee found its way to lecturers and then to other students around campus.",
         image: "/images/branding.jpeg",
       },
     ],
   },
   {
     numeral: "IV",
-    title: "Today, and tomorrow",
-    span: "Keep sipping!!!",
+    title: "Growing up",
+    span: `${site.founded.year} — today`,
     milestones: [
       {
-        marker: "Today",
-        label: "Your cup",
-        title: "Ordered with a message",
-        text: "Order on WhatsApp and talk to us directly. We deliver within Kampala and across Uganda.",
+        marker: "Beyond campus",
+        label: "Coffee shops",
+        title: "Into local coffee shops",
+        text: "Next came coffee shops — the first places outside campus to serve Cherry's to their own customers.",
         image: "/videos/pouring-coffee-into-cup-poster.jpg",
+      },
+      {
+        marker: "Today",
+        label: "Cafés & hotels",
+        title: "Exploring cafés and hotels",
+        text: "Today we're bringing Sipi Arabica to cafés and hotels, with wholesale supply and orders straight on WhatsApp — delivered within Kampala and across Uganda.",
+        image: "/images/story/mountain.jpg",
       },
       {
         marker: "Next",
         label: "Come and see",
-        title: "Visit the origin",
-        text: "Coffee experiences in Sipi, supply for cafés and hotels, and many more cups to come. This story is only getting started.",
-        quote: "Take a moment, pour a cup, and keep sipping!!!",
+        title: "This story is only getting started",
+        text: "Coffee experiences in Sipi, more partners and many more cups to come.",
+        quote: "From one cup for a classmate to cafés across Uganda. Keep sipping!!!",
       },
     ],
   },

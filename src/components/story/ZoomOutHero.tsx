@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useScrollProgress } from "@/lib/useScrollProgress";
+import { site } from "@/config/site";
 
 // Innermost first. Each picture becomes a framed window inside the next one as
 // the camera pulls back — from a single cherry out to the whole mountain.
@@ -9,7 +10,7 @@ const stages = [
   { image: "/images/story/cherries.jpg", eyebrow: "It starts small", title: "A handful of ripe cherries." },
   { image: "/images/story/garden.jpg", eyebrow: "Picked by hand", title: "One family garden." },
   { image: "/images/sipifalls.jpg", eyebrow: "Beneath the falls", title: "One town: Sipi." },
-  { image: "/images/story/mountain.jpg", eyebrow: "Mount Elgon, Uganda", title: "Now in cups across Uganda." },
+  { image: "/images/story/mountain.jpg", eyebrow: `Since ${site.founded.month} ${site.founded.year} · Mount Elgon`, title: "From one classmate's cup to cafés across Uganda." },
 ];
 
 // How much of the next picture each window fills.
