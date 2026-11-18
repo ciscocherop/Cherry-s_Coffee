@@ -81,7 +81,6 @@ export const chapters: Chapter[] = [
         marker: "The first sale",
         label: "Cup number one",
         title: "Sold to a classmate",
-        // TODO: add Julius's surname only with his permission.
         text: "The very first sale went to Julius, a fellow student. From that one bag, Cherry's Coffee was on its way.",
         quote: "Every big story starts with one cup.",
       },

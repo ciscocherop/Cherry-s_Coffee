@@ -1,6 +1,6 @@
 import type { Product } from "@/types/product";
 
-// TODO: intensity (1–5) and roast levels are estimates — confirm them with your roaster.
+// Intensity (1–5) and roast levels confirmed by the founder, Nov 2026.
 
 export const products: Product[] = [
   {
